@@ -1,11 +1,16 @@
+import { List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
 import React from 'react';
 
 
 function Todo(props) {
     return (
-        <div className="Todo">
-            <li> {props.jpani}</li>
-        </div>
+        <List>
+            <ListItem>
+                <ListItemAvatar>
+                </ListItemAvatar>
+                <ListItemText primary={props.jpani} secondary="Delete Once Done" />
+            </ListItem>
+        </List>
     );
 }
 
