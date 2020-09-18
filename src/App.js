@@ -42,25 +42,33 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Welcome to Todos</h1>
-      {/* form to submit on enter */}
-      <form>
-        <FormControl>
-          <InputLabel>Enter your Todo</InputLabel>
-          <Input value={input} onChange={event => setInput(event.target.value)} />
-        </FormControl>
+    <div className="app">
+      <div className="app__content">
+        <h1>Welcome to Todos</h1>
+        {/* form to submit on enter */}
+        <form>
+          <FormControl>
+            <InputLabel>Enter your Todo</InputLabel>
+            <Input value={input} onChange={event => setInput(event.target.value)} />
+          </FormControl>
 
-        <Button type="submit" disabled={!input} onClick={addTodo} color="default">
-          Add Todos
+          <Button type="submit" disabled={!input} onClick={addTodo} color="default">
+            Add Todos
          </Button>
-      </form>
+        </form>
 
-      <ul>
-        {todos.map(todo => (
-          <Todo todo={todo} />
-        ))}
-      </ul>
+        <ul>
+          {todos.map(todo => (
+            <Todo todo={todo} />
+          ))}
+        </ul>
+
+      </div>
+      <div className="app__footer">
+        <h6>All Rights Reserverd &copy 2020 |
+          <a href="http://dipendrachand.com.np/" target="_blank"> dealbisac</a></h6>
+
+      </div>
     </div >
   );
 }
