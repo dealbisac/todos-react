@@ -1,5 +1,6 @@
-import { List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
+import { Button, List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
 import React from 'react';
+import db from './firebase';
 
 
 function Todo(props) {
@@ -8,9 +9,11 @@ function Todo(props) {
             <ListItem>
                 <ListItemAvatar>
                 </ListItemAvatar>
-                <ListItemText primary={props.jpani} secondary="Delete Once Done" />
+                <ListItemText primary={props.todo.todo} secondary="Delete Once Done" />
+                <Button onClick={event => db.collection('todos').doc(props.todo.id).delete()}>DELETE ME</Button>
             </ListItem>
-        </List>
+
+        </List >
     );
 }
 

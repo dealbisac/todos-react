@@ -16,7 +16,10 @@ function App() {
     //Showing from DB (READ)
     db.collection('todos').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
       //console.log(snapshot.docs.map(doc => doc.data()));
-      setTodos(snapshot.docs.map(doc => doc.data().todo))
+      //to show
+      //setTodos(snapshot.docs.map(doc => doc.data().todo))
+      //to delete add ID
+      setTodos(snapshot.docs.map(doc => ({ id: doc.id, todo: doc.data().todo })))
     })
   }, []);
 
@@ -55,7 +58,7 @@ function App() {
 
       <ul>
         {todos.map(todo => (
-          <Todo jpani={todo} />
+          <Todo todo={todo} />
         ))}
       </ul>
     </div >
