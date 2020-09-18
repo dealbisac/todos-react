@@ -51,7 +51,7 @@ function App() {
           <Input value={input} onChange={event => setInput(event.target.value)} />
         </FormControl>
 
-        <Button type="submit" disabled={!input} onClick={addTodo} >
+        <Button type="submit" disabled={!input} onClick={addTodo} color="default">
           Add Todos
          </Button>
       </form>
