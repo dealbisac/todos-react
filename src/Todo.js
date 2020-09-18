@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-function Todo() {
+function Todo(props) {
     return (
         <div className="Todo">
-            
+            <li> {props.jpani}</li>
         </div>
-    )
+    );
 }
 
-export default Todo
+export default Todo;
