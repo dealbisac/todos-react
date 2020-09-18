@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Todo from './Todo';
 import db from './firebase';
+import firebase from 'firebase';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     //This code here .. fires when the App.js loads
     //Showing from DB (READ)
-    db.collection('todos').onSnapshot((snapshot) => {
+    db.collection('todos').orderBy('timestamp', 'desc').onSnapshot((snapshot) => {
       //console.log(snapshot.docs.map(doc => doc.data()));
       setTodos(snapshot.docs.map(doc => doc.data().todo))
     })
@@ -26,7 +27,8 @@ function App() {
 
     //Writing to DB (CREATE)
     db.collection('todos').add({
-      todo: input
+      todo: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
 
     //console.log("I am working");
